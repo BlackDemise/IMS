@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/interviewmanagement/login.css">
+</head>
+<body style="margin: 0; padding: 0; height: 100vh; background: url('/images/company.jpg') center/cover no-repeat;">
+<div class="container-fluid d-flex align-items-center justify-content-center" id="container-box">
+    <div class="row">
+        <div class="col-12">
+            <div id="login-box">
+                <h5>IMS Recruitment</h5>
+                <form action="/login" method="post">
+                    <div class="box">
+                        <span>Username</span>
+                        <input type="text" name="username">
+                    </div>
+                    <div class="box">
+                        <span>Password</span>
+                        <input type="password" name="password">
+                    </div>
+                    <div class="text-end box">
+                        <input type="checkbox" class="btn-check" name="rememberMe" id="rememberMe">
+                        <label class="btn btn-outline-primary" for="rememberMe">Remember me</label>
+                    </div>
+                    <div class="text-end box">
+                        <button type="submit" class="btn btn-info">Login</button>
+                        <button class="btn btn-warning">Forgot password?</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>

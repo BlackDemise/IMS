@@ -1,0 +1,15 @@
+.parent-container {
+    display: flex; /* Use flexbox for the parent container */
+    justify-content: center; /* Center children horizontally */
+    align-items: center; /* Center children vertically */
+    /* Add any other styling for the parent container */
+}
+
+.icon-text-container {
+    display: flex; /* Use flexbox for the container */
+    align-items: center; /* Center items vertically */
+}
+
+.icon-text-container svg {
+    margin-right: 5px; /* Add spacing between the icon and text */
+}

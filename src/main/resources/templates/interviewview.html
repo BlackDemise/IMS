@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Interview</title>
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap-icons.min.css">
+</head>
+<style>
+    .search-container {
+        display: flex;
+        align-items: center;
+    }
+    .form-control, .form-select, .btn {
+        margin-right: 20px;
+    }
+</style>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="~{commons/verticalnavbar :: navbar}"></div>
+        <div class="col-11">
+            <h1>Interview Schedule</h1>
+            <i style="font-size:20px">Interview Schedule List</i>
+            <form action="" method="get">
+                <div class="search-container">
+                    <input type="text" placeholder="Search" class="form-control w-25" style="display:inline-block">
+                    <select class="form-select w-25">
+                        <option selected disabled>Interviewer</option>
+                    </select>
+                    <select class="form-select w-25">
+                        <option selected disabled>Status</option>
+                        <option value="1">Open</option>
+                        <option value="2">Banned</option>
+                        <option value="3">Waiting for interview</option>
+                        <option value="4">Cancelled interview</option>
+                        <option value="5">Passed interview</option>
+                        <option value="6">Failed interview</option>
+                        <option value="7">Waiting for approval</option>
+                        <option value="8">Approved offer</option>
+                        <option value="9">Rejected offer</option>
+                        <option value="10">Waiting for response</option>
+                        <option value="11">Accepted offer</option>
+                        <option value="12">Declined offer</option>
+                        <option value="13">Cancelled offer</option>
+                    </select>
+                    <button type="submit" class="btn btn-info">Search</button>
+                </div>
+            </form>
+            <div class="text-end mt-2">
+                <form action="/candidate/add" method="get">
+                    <button type="submit" class="btn btn-warning">Add new</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

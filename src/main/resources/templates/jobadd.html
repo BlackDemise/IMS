@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a new job</title>
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap-icons.min.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="~{commons/verticalnavbar :: navbar}"></div>
+        <div class="col-11">
+            <h1>Job</h1>
+            <form action="" method="get">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="py-2">
+                            <p>Job title<sup style="color: red">*</sup></p>
+                            <input type="text" class="form-control" placeholder="Type a title...">
+                        </div>
+                        <div class="py-2">
+                            <p>Start date<sup style="color: red">*</sup></p>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div style="display: flex; align-items: center;" class="py-2">
+                            <p style="margin-right: 10px;">Salary range</p>
+                            <span style="margin-right: 5px;">From</span>
+                            <input type="text" class="form-control" style="display: inline-block;">
+                            <span style="margin-left: 5px; margin-right: 5px;">To</span>
+                            <input type="text" class="form-control" style="display: inline-block;">
+                        </div>
+                        <div class="py-2">
+                            <p>Working address</p>
+                            <input type="text" class="form-control" placeholder="Type a address...">
+                        </div>
+                    </div>
+                    <div class="col-7 mt-3">
+                        <div class="py-2">
+                            <span>Skills</span>
+                            <select class="form-select w-50">
+                                <option selected disabled>Select skills...</option>
+                                <option value="1">Java</option>
+                                <option value="2">Nodejs</option>
+                                <option value="3">.Net</option>
+                                <option value="4">C++</option>
+                                <option value="5">Business analysis</option>
+                                <option value="6">Communication</option>
+                            </select>
+                        </div>
+                        <div class="py-2">
+                            <p>End date<sup style="color: red">*</sup></p>
+                            <input type="date" class="form-control w-50">
+                        </div>
+                        <div class="py-2">
+                            <span>Benefits</span><sup style="color:red">*</sup>
+                            <select class="form-select w-50">
+                                <option selected disabled>Select benefits...</option>
+                                <option value="1">Lunch</option>
+                                <option value="2">25-day leave</option>
+                                <option value="3">Healthcare insurance</option>
+                                <option value="4">Hybrid working</option>
+                                <option value="5">Travel</option>
+                            </select>
+                        </div>
+                        <div class="py-2">
+                            <span>Levels</span><sup style="color:red">*</sup>
+                            <select class="form-select w-50">
+                                <option selected disabled>Select levels...</option>
+                                <option value="1">Fresher</option>
+                                <option value="2">Junior</option>
+                                <option value="3">Senior</option>
+                                <option value="4">Leader</option>
+                                <option value="5">Manager</option>
+                                <option value="6">Vice Head</option>
+                            </select>
+                        </div>
+                        <div class="py-2">
+                            <p>Working address</p>
+                            <textarea class="form-control w-75"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

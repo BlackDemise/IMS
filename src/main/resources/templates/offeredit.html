@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a new offer</title>
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/interviewmanagement/horizontalnavbar.css">
+    <link rel="stylesheet" href="/css/interviewmanagement/offeradd.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="~{commons/verticalnavbar :: vertical-navbar}"></div>
+        <div class="col-11 p-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex align-items-center">
+                <h3 style="display:inline; margin-right: 30px;margin-left:30px;" class="me-4">Offer</h3>
+                <div th:replace="~{commons/horizontalnavbar :: horizontal-navbar}"></div>
+            </nav>
+            <div class="row">
+                <div class="mt-1 mb-2" style="margin-left: 30px">
+                    <a href="/offer/">Offer List</a><span style="font-size:20px;"> > </span>
+                    <a th:href="@{/offer/edit(offerId=*{offer.get()?.offerId})}">Create Offer</a>
+                </div>
+                <div>
+                    <form action="/offer/add/continue" method="get" style="margin-left: 18px">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label>Candidate</label>
+                                        <div class="input-wrapper">
+                                            <select name="candidate" class="form-select w-75 mb-3">
+                                                <option disabled selected>Select a candidate</option>
+                                                <th:block th:if="${candidateList} != null">
+                                                    <th:block th:each="candidate : ${candidateList}">
+                                                        <select>
+                                                            <option th:each="candidate, candidateStat : ${candidateList}"
+                                                                    th:value="${candidateStat.count}"
+                                                                    th:text="${candidate}"/>
+                                                        </select>
+                                                    </th:block>
+                                                </th:block>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Position</label>
+                                        <div class="input-wrapper">
+                                            <select name="position" class="form-select w-75 mb-3">
+<!--                                                <option th:each="position : ${#strings.array('BACKEND_DEVELOPER', 'Business Analyst', 'Tester', 'HR', 'Project manager', 'Not available')}"-->
+<!--                                                        th:value="${offer.get()?.candidatePosition}" th:text="${offer.get()?.candidatePosition}" th:selected="${offer.get()?.candidatePosition == offer?.get()?.candidatePosition}">-->
+<!--                                                </option>-->
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Approver</label>
+                                        <div class="input-wrapper">
+                                            <select name="approver" class="form-select w-75 mb-3">
+                                                <option disabled selected>Select an approver</option>
+                                                <th:block th:if="${approverList} != null">
+                                                    <th:block th:each="approver : ${approverList}">
+                                                        <select>
+                                                            <option th:each="approver, approverStat : ${approverList}"
+                                                                    th:value="${approverStat.count}"
+                                                                    th:text="${approver}"/>
+                                                        </select>
+                                                    </th:block>
+                                                </th:block>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Interview info</label>
+                                        <div class="input-wrapper">
+                                            <select name="interviewInfo" class="form-select w-75 mb-3">
+                                                <option disabled selected>Select an interview schedule title</option>
+                                                <th:block th:if="${interviewList} != null">
+                                                    <th:block th:each="interview : ${interviewList}">
+                                                        <select>
+                                                            <option th:each="interview, interviewStat : ${interviewList}"
+                                                                    th:value="${interviewStat.count}"
+                                                                    th:text="${interview}"/>
+                                                        </select>
+                                                    </th:block>
+                                                </th:block>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label style="display: block;">Contract Period</label>
+                                        <div class="input-wrapper" style="display: flex; align-items: baseline;">
+                                            <span style="margin-right: 31px;">From</span>
+                                            <input type="date" name="contractStart" class="form-control w-25" style="margin-right: 31px;" >
+                                            <span style="margin-right: 31px;">To</span>
+                                            <input type="date" name="contractEnd" class="form-control w-25" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Interview Note</label>
+                                        <div class="input-wrapper">
+                                            <textarea name="interviewNote" class="form-control w-75" ></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label>Contract Type</label>
+                                        <div class="input-wrapper">
+                                            <select name="contractType" class="form-select w-75 mb-3" >
+                                                <option disabled selected>Select a contract type
+                                                <option value="Trial 2 months">Trial 2 months</option>
+                                                <option value="Trainee 3 months">Trainee 3 months</option>
+                                                <option value="1 year">1 year</option>
+                                                <option value="3 years">3 years</option>
+                                                <option value="Unlimited">Unlimited</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Level</label>
+                                        <div class="input-wrapper">
+                                            <select name="level" class="form-select w-75 mb-3" >
+                                                <option disabled selected>Select a level</option>
+                                                <option value="Fresher">Fresher</option>
+                                                <option value="Junior">Junior</option>
+                                                <option value="Senior">Senior</option>
+                                                <option value="Leader">Leader</option>
+                                                <option value="Manager">Manager</option>
+                                                <option value="Vice Head">Vice Head</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Department</label>
+                                        <div class="input-wrapper">
+                                            <select name="department" class="form-select w-75 mb-3" >
+                                                <option selected disabled>Select a department</option>
+                                                <option value="IT">IT</option>
+                                                <option value="HR">HR</option>
+                                                <option value="Finance">Finance</option>
+                                                <option value="Communication">Communication</option>
+                                                <option value="Marketing">Marketing</option>
+                                                <option value="Accounting">Accounting</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Recruiter Owner</label>
+                                        <div class="input-wrapper">
+                                            <select name="recruitOwner" class="form-select w-75 mb-3">
+                                                <option disabled selected>Select a recruiter owner</option>
+                                                <th:block th:if="${recruitOwnerList} != null">
+                                                    <th:block th:each="recruitOwner : ${recruitOwnerList}">
+                                                        <select>
+                                                            <option th:each="recruitOwner, recruitOwnerStat : ${recruitOwnerList}"
+                                                                    th:value="${recruitOwnerStat.count}"
+                                                                    th:text="${recruitOwner}"/>
+                                                        </select>
+                                                    </th:block>
+                                                </th:block>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label>Due Date</label>
+                                        <div class="input-wrapper">
+                                            <input type="date" class="form-control w-75" name="dueDate" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label>Basic Salary</label>
+                                        <div class="input-wrapper">
+                                            <input type="text" placeholder="Enter basic salary"
+                                                   class="form-control w-75" name="salary" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label>Offer Note</label>
+                                        <div class="input-wrapper">
+                                            <textarea name="offerNote" class="form-control w-75"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success" style="margin-right: 20px;">Save</button>
+                                <a href="/offer/" class="btn btn-danger">Cancel</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>

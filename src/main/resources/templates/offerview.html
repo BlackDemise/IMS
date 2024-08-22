@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Offer</title>
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/interviewmanagement/horizontalnavbar.css">
+    <style>
+        th a {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="~{commons/verticalnavbar :: vertical-navbar}"></div>
+        <div class="col-11 p-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex align-items-center">
+                <h3 style="display:inline; margin-right: 30px;margin-left:30px;" class="me-4">Offer</h3>
+                <div th:replace="~{commons/horizontalnavbar :: horizontal-navbar}"></div>
+            </nav>
+            <div style="margin: 15px 15px 0 30px;">
+                <h4>Offer list</h4>
+                <form action="" method="get">
+                    <div class="search-container">
+                        <input type="text" placeholder="Search" class="form-control w-25" style="display: inline">
+                        <select class="form-select w-25" style="display: inline">
+                            <option selected disabled>Department</option>
+                            <option value="1">IT</option>
+                            <option value="2">HR</option>
+                            <option value="3">Finance</option>
+                            <option value="4">Communication</option>
+                            <option value="5">Marketing</option>
+                            <option value="6">Accounting</option>
+                        </select>
+                        <select class="form-select w-25" style="display: inline">
+                            <option selected disabled>Status</option>
+                            <option value="1">Open</option>
+                            <option value="2">Banned</option>
+                            <option value="3">Waiting for interview</option>
+                            <option value="4">Cancelled interview</option>
+                            <option value="5">Passed interview</option>
+                            <option value="6">Failed interview</option>
+                            <option value="7">Waiting for approval</option>
+                            <option value="8">Approved offer</option>
+                            <option value="9">Rejected offer</option>
+                            <option value="10">Waiting for response</option>
+                            <option value="11">Accepted offer</option>
+                            <option value="12">Declined offer</option>
+                            <option value="13">Cancelled offer</option>
+                        </select>
+                        <button type="submit" class="btn btn-info" style="margin-bottom: 4px">Search</button>
+                    </div>
+                </form>
+                <div class="text-end mt-2">
+                    <a href="/offer/add" class="btn btn-warning">Add new</a>
+                    <a href="/offer/import" class="btn btn-warning">Import</a>
+                </div>
+                <table class="table text-center mt-2">
+                    <thead>
+                    <tr>
+                        <th scope="col">Candidate Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Approver</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Notes</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    <th:block th:each="offer : ${offerList}">
+                        <tr>
+                            <th scope="col" th:text="${offer?.candidate?.candidateFullName ?: 'null'}"></th>
+                            <th scope="col" th:text="${offer?.candidate?.candidateEmail ?: 'null'}"></th>
+                            <th scope="col" th:text="${offer?.approver?.username ?: 'null'}"></th>
+                            <th scope="col" th:text="${offer?.userOfferDepartment ?: 'null'}"></th>
+                            <th scope="col" th:text="${offer?.offerNote ?: 'null'}"></th>
+                            <th scope="col">?</th>
+                            <th scope="col">
+                                <a th:href="@{/offer/detail(offerId=*{offer.offerId})}"><i class="bi bi-eye"></i></a>
+                                <a th:href="@{/offer/edit(offerId=*{offer.offerId})}"><i class="bi bi-pencil-square"></i></a>
+                            </th>
+                        </tr>
+                    </th:block>
+                    </thead>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

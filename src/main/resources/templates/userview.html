@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap-icons.min.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="~{commons/verticalnavbar :: navbar}"></div>
+        <div class="col-11">
+            <th:block th:each="user: ${userList}">
+                <p th:text="${user.userAddress}"></p>
+                <a></a>
+            </th:block>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add candidate</title>
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap-icons.min.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="~{commons/verticalnavbar :: vertical-navbar}"></div>
+        <div class="col-11 p-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex align-items-center">
+                <h3 style="display:inline; margin-right: 30px;margin-left:30px" class="me-4">Candidate</h3>
+                <div th:replace="~{commons/horizontalnavbar :: horizontal-navbar}"></div>
+            </nav>
+            <form action="" method="get">
+                <div>
+                    <h2>Candidate</h2>
+
+                    <h3>Candidate  > Add candidate information</h3>
+                </div>
+                <div class="row" style="background-color: #cfe2f1; margin-top: 5%">
+                    <div class="col-5">
+                        <div class="py-2">
+                            <h5>I. Personal information</h5>
+                            <span>Full name</span><sup style="color:red">*</sup>
+                            <input type="text" placeholder="Type a name..." class="form-control w-50" style="display:inline">
+                        </div>
+                        <div class="py-2">
+                            <span>D.O.B</span>
+                            <input type="date" class="form-control w-50" style="display:inline">
+                        </div>
+                        <div class="py-2">
+                            <span>Phone number</span>
+                            <input type="text" placeholder="Type a number..." class="form-control w-50" style="display:inline">
+                        </div>
+                        <div class="py-2">
+                            <h5>II. Professional information</h5>
+                            <span>CV attachment</span>
+                            <input type="file" class="form-control w-50" style="display:inline">
+                        </div>
+                        <div class="py-2">
+                            <span>Position</span>
+                            <select class="form-select w-50">
+                                <option selected disabled>Select a position... ex; Backend developer...</option>
+                                <option value="1">Backend Developer</option>
+                                <option value="2">Business Analystr</option>
+                                <option value="3">Tester</option>
+                                <option value="4">HR</option>
+                                <option value="5">Project manager</option>
+                                <option value="6">Not available</option>
+                            </select>
+                        </div>
+                        <div class="py-2">
+                            <span>Skills</span>
+                            <select class="form-select w-50">
+                                <option selected disabled>Select skills...</option>
+                                <option value="1">Java</option>
+                                <option value="2">Nodejs</option>
+                                <option value="3">.Net</option>
+                                <option value="4">C++</option>
+                                <option value="5">Business analysis</option>
+                                <option value="6">Communication</option>
+                            </select>
+                        </div>
+                        <div class="py-2">
+                            <span>Recruiter</span>
+                            <select class="form-select w-25">
+                                <option selected disabled>Recruiter name</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-7 mt-4">
+                        <div class="py-2">
+                            <span>Email</span><sup style="color:red">*</sup>
+                            <input type="email" placeholder="Type an email..." class="form-control w-50" style="display:inline">
+                        </div>
+                        <div class="py-2">
+                            <span>Address</span>
+                            <input type="text" placeholder="Type a address..." class="form-control w-50" style="display:inline">
+                        </div>
+                        <div class="py-2">
+                            <span>Gender</span><sup style="color:red">*</sup>
+                            <select class="form-select w-50">
+                                <option selected disabled>Select a gender</option>
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                                <option value="3">Rather not tell</option>
+                            </select>
+                        </div>
+                        <div class="py-2">
+                            <span>Note</span>
+                            <input type="text" placeholder="N/A" class="form-control w-50" style="display:inline">
+                        </div>
+                        <div class="py-2">
+                            <span>Status</span><sup style="color:red">*</sup>
+                            <select class="form-select w-50">
+                                <option selected disabled>Select a status</option>
+                                <option value="1">Open</option>
+                                <option value="2">Banned</option>
+                                <option value="3">Waiting for interview</option>
+                                <option value="4">Cancelled interview</option>
+                                <option value="5">Passed interview</option>
+                                <option value="6">Failed interview</option>
+                                <option value="7">Waiting for approval</option>
+                                <option value="8">Approved offer</option>
+                                <option value="9">Rejected offer</option>
+                                <option value="10">Waiting for response</option>
+                                <option value="11">Accepted offer</option>
+                                <option value="12">Declined offer</option>
+                                <option value="13">Cancelled offer</option>
+                            </select>
+                        </div>
+                        <div class="py-2">
+                            <span>Year of Experience</span>
+                            <input type="number" placeholder="Type a number" class="form-control w-50" style="display:inline">
+                        </div>
+                        <div class="py-2">
+                            <span>Highest level</span><sup style="color:red">*</sup>
+                            <select class="form-select w-50">
+                                <option selected disabled>Select highest level</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="text-align: center">
+                        <form action="">
+                            <button> Submit </button>
+                            <button> Cancel</button>
+                        </form>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

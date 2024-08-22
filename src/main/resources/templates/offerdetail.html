@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a new offer</title>
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/interviewmanagement/horizontalnavbar.css">
+    <link rel="stylesheet" href="/css/interviewmanagement/offeradd.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="~{commons/verticalnavbar :: vertical-navbar}"></div>
+        <div class="col-11 p-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex align-items-center">
+                <h3 style="display:inline; margin-right: 30px;margin-left:30px;" class="me-4">Offer</h3>
+                <div th:replace="~{commons/horizontalnavbar :: horizontal-navbar}"></div>
+            </nav>
+            <div class="row">
+                <div class="mt-1 mb-2" style="margin-left: 30px">
+                    <a href="/offer/">Offer List</a><span style="font-size:20px;"> > </span>
+                    <a th:href="@{/offer/detail(offerId=*{offer.get()?.offerId})}">Offer Details</a>
+                </div>
+                <div>
+                    <form action="/offer/add/continue" method="get" style="margin-left: 18px">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label>Candidate</label>
+                                        <div class="input-wrapper">
+                                            <input disabled th:value="${offer.get()?.candidate?.candidateFullName}" class="form-control w-75">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Position</label>
+                                        <div class="input-wrapper">
+                                            <input disabled th:value="${offer.get()?.candidatePosition}" class="form-control w-75">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Approver</label>
+                                        <div class="input-wrapper">
+                                            <input disabled th:value="${offer.get()?.approver?.username}" class="form-control w-75">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Interview info</label>
+                                        <div class="input-wrapper">
+                                            <input disabled th:value="${offer.get()?.interview?.interviewScheduleTitle}" class="form-control w-75">
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label style="display: block;">Contract Period</label>
+                                        <div class="input-wrapper" style="display: flex; align-items: baseline;">
+                                            <span style="margin-right: 31px;">From</span>
+                                            <input type="date" th:value="${offer.get()?.offerContractPeriodFrom}"
+                                                   class="form-control w-25" style="margin-right: 31px;" disabled>
+                                            <span style="margin-right: 31px;">To</span>
+                                            <input type="date" th:value="${offer.get()?.offerContractPeriodTo}"
+                                                   class="form-control w-25" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Interview Note</label>
+                                        <div class="input-wrapper">
+                                            <textarea disabled th:text="${offer.get()?.interview?.interviewNote}"
+                                                      class="form-control w-75"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label>Contract Type</label>
+                                        <div class="input-wrapper">
+                                            <input disabled th:value="${offer.get()?.offerContract}" class="form-control w-75">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Level</label>
+                                        <div class="input-wrapper">
+                                            <input disabled th:value="${offer.get()?.jobOfferLevel}" class="form-control w-75">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Department</label>
+                                        <div class="input-wrapper">
+                                            <input disabled th:value="${offer.get()?.userOfferDepartment}" class="form-control w-75">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Recruiter Owner</label>
+                                        <div class="input-wrapper">
+                                            <input disabled th:value="${offer.get()?.recruiter?.username}" class="form-control w-75">
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label>Due Date</label>
+                                        <div class="input-wrapper">
+                                            <input type="date" class="form-control w-75" disabled
+                                                   th:value="${offer.get()?.offerDueDate}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label>Basic Salary</label>
+                                        <div class="input-wrapper">
+                                            <input type="text" th:value="${offer.get()?.offerBasicSalary}"
+                                                   class="form-control w-75" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label>Offer Note</label>
+                                        <div class="input-wrapper">
+                                            <textarea disabled th:text="${offer.get()?.offerNote}"
+                                                      class="form-control w-75"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>

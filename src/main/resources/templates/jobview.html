@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Job</title>
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap-icons.min.css">
+</head>
+<style>
+    .search-container {
+        display: flex;
+        align-items: center;
+    }
+    .form-control, .form-select, .btn {
+        margin-right: 20px;
+    }
+</style>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="~{commons/verticalnavbar :: navbar}"></div>
+        <div class="col-11">
+            <h1>Job</h1>
+            <p>Job list</p>
+            <form action="" method="get">
+                <div class="search-container">
+                    <input type="text" placeholder="Search" class="form-control w-25" style="display:inline-block">
+                    <select class="form-select w-25">
+                        <option selected disabled>Status</option>
+                        <option value="1">Open</option>
+                        <option value="2">Closed</option>
+                    </select>
+                    <button type="submit" class="btn btn-info">Search</button>
+                </div>
+            </form>
+            <div class="text-end">
+                <form action="/job/add" method="get">
+                    <button type="submit" class="btn btn-warning" name="addNewJob">Add new</button>
+                    <button type="submit" class="btn btn-warning" name="import">Import</button>
+                </form>
+            </div>
+            <table class="table text-center mt-2">
+                <thead>
+                <tr>
+                    <th scope="col">Job Title</th>
+                    <th scope="col">Required Skills</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col">Level</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

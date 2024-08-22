@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Candidate Add/Edit</title>
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap-icons.min.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="~{commons/navbar :: navbar}"></div>
+        <div class="col-11 mt-2">
+            <form th:object="${candidate}" th:action="@{/candidate/save}" method="post">
+                <div>
+                    <h2>Candidate</h2>
+                    <h3>Candidate > Edit Candidate information </h3>
+                </div>
+                <div>
+                    <h2 th:if="${candidate != null} ? 'Chỉnh sửa thông tin ứng viên' : 'Thêm mới ứng viên'"></h2>
+                </div>
+                <div class="row" style="background-color: #cfe2f1; margin-top: 5%">
+                    <div class="col-5">
+                        <div class="py-2">
+                            <h5>I. Thông tin cá nhân</h5>
+                            <div class="mb-3">
+                                <label for="candidateFullName" class="form-label">Họ và tên</label>
+                                <input type="text" th:field="${candidate.candidateFullName}" class="form-control" id="candidateFullName" placeholder="Nhập họ và tên...">
+                            </div>
+                            <div class="mb-3">
+                                <label for="candidateDob" class="form-label">D.O.B</label>
+                                <input type="text" th:field="${candidate.candidateDob}" class="form-control" id="candidateDob" placeholder="Nhập họ và tên...">
+                            </div>
+                            <div class="mb-3">
+                                <label for="candidatePhonenumber" class="form-label">Phone number</label>
+                                <input type="text" th:field="${candidate.candidatePhonenumber}" class="form-control" id="candidatePhonenumber" placeholder="Nhập họ và tên...">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-7 mt-4">
+                        <div class="py-2">
+                            <h5>II. Thông tin chuyên nghiệp</h5>
+                            <div class="mb-3">
+                                <label for="candidateEmail" class="form-label">Email</label>
+                                <input type="email" th:field="${candidate.candidateEmail}" class="form-control" id="candidateEmail" placeholder="Enter your email ...">
+                            </div>
+                            <div class="mb-3">
+                                <label for="candidateAddress" class="form-label">Address</label>
+                                <input type="email" th:field="${candidate.candidateAddress}" class="form-control" id="candidateAddress" placeholder="Enter your address..">
+                            </div>
+                            <div class="mb-3">
+                                <label for="candidateGender" class="form-label">Gender</label>
+                                <input type="email" th:field="${candidate.candidateGender}" class="form-control" id="candidateGender" placeholder="Enter your ganer...">
+                            </div>
+                            <div class="mb-3">
+                                <label for="candidateNote" class="form-label">Note</label>
+                                <input type="email" th:field="${candidate.candidateNote}" class="form-control" id="candidateNote" placeholder="Enter your Note">
+                            </div>
+                            <div class="mb-3">
+                                <label for="candidateStatus" class="form-label">Status</label>
+                                <input type="email" th:field="${candidate.candidateStatus}" class="form-control" id="candidateStatus" placeholder="ENter your status">
+                            </div>
+                            <div class="mb-3">
+                                <label for="candidateExperience" class="form-label">Year Of Experience </label>
+                                <input type="email" th:field="${candidate.candidateEmail}" class="form-control" id="candidateExperience" placeholder="Nhập địa chỉ email...">
+                            </div>
+                            <div class="mb-3">
+                                <label for="candidateHighestLevel" class="form-label">Highest Level</label>
+                                <input type="email" th:field="${candidate.candidateHighestLevel}" class="form-control" id="candidateHighestLevel" placeholder="Nhập địa chỉ email...">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div style="text-align: center">
+                        <button type="submit" class="btn btn-primary">Lưu thông tin</button>
+                        <a th:href="@{'/candidate/'}" class="btn btn-secondary">Hủy</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
